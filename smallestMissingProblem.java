@@ -20,9 +20,8 @@ public class smallestMissingProblem {
     }
 
     public static void smallestMissing(int[] num) {
-        // for loop to iterate through the length of the array
-        // compares the index i to the element of the array and prints out the first
-        // mismatch
+        // for loop to iterate through the length of the array compares the index i to
+        // the element of the array and prints out the first mismatch
         for (int i = 0; i < num.length; i++) {
             if (num[i] != i) {
                 System.out.println("(Linear Search) The first missing element is " + i);
@@ -36,19 +35,21 @@ public class smallestMissingProblem {
     }
 
     public static int smallestMissingBs(int[] num) {
-           int a = 0, b = num.length - 1; 
-           //using a while loop to sort through each part of the array by splitting it through the middle
-            while(a <= b) { 
-                int mid = (a + b) / 2; 
-                if(num[mid] > mid) {
-                b = mid - 1; 
-                }
-                else{
-                a = mid + 1; 
-                }
-            } 
-            System.out.print("(Binary Search) The first missing element is ");
-            return b < 0? 0: (num[b] + 1);
+        int a = 0, b = num.length - 1;
+        // using a while loop to sort through each part of the array by splitting it
+        // through the middle
+        while (a <= b) {
+            int mid = (a + b) / 2;
+            if (num[mid] > mid) {
+                b = mid - 1;
+            } else {
+                a = mid + 1;
+            }
         }
+        // prints out the if statement that if b is less than 0, print out 0, else print
+        // out the index b of num plus 1
+        System.out.print("(Binary Search) The first missing element is ");
+        return b < 0 ? 0 : (num[b] + 1);
+    }
 
 }
